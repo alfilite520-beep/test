@@ -1,0 +1,138 @@
+* {
+    /* 保持原有的重置 */
+    padding: 0;
+    margin: 0;
+    /* 引入更现代的盒模型，便于布局 */
+    box-sizing: border-box; 
+}
+
+/* 页面背景 */
+.container {
+    background-color: rgba(64, 170, 186, 0.6);
+    background-image: url('./R-C.jpg'); 
+    background-attachment: fixed; 
+    background-size: cover; 
+    background-position: center center; 
+    background-repeat: no-repeat;
+    /* 优化：设置字体为无衬线字体，提高整体可读性 */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* 确保容器占据整个视口 */
+    min-height: 100vh; 
+    /* 启用Flex布局以便于居中 main-box */
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+
+/* Canvas 保持透明度和固定位置 */
+canvas {
+    background-color:rgba(255, 255, 255, 0.19);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* 降低 z-index，确保 main-box 在上面 */
+    z-index: 1; 
+}
+
+/* 主内容区域优化 */
+.main-box {
+    width: 90%; 
+    max-width: 500px; 
+    padding: 30px;
+    
+    /* 添加视觉美化 */
+    background-color: rgba(255, 255, 255, 0.95); /* 半透明白色背景 */
+    border-radius: 12px; /* 圆角 */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* 阴影使其浮起 */
+    position: relative; 
+    z-index: 3; 
+    color: #333;
+    line-height: 1.6;
+
+    /* ========== 动画样式添加开始 ========== */
+    animation: fadeInSlideUp 1s ease-out forwards;
+    /* 动画名称: fadeInSlideUp (自定义)
+       持续时间: 1s
+       缓动函数: ease-out (开始快，结束慢)
+       填充模式: forwards (动画结束后保持最后一帧的样式) */
+    /* ========== 动画样式添加结束 ========== */
+}
+
+/* 标题样式 */
+.title {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #40aabc; 
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd; 
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+/* 座右铭样式 */
+.moto {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f8ff; 
+    border-left: 5px solid #40aabc;
+}
+
+/* 链接样式 */
+a {
+    color: #007bff; 
+    text-decoration: none; 
+    transition: color 0.3s;
+    display: block; 
+    margin-bottom: 15px;
+}
+
+a:hover {
+    color: #0056b3; 
+    text-decoration: underline; 
+}
+
+/* 列表样式 */
+ul {
+    list-style-type: disc; 
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+/* 列表项样式 */
+li {
+    margin-bottom: 8px;
+}
+
+.hobby {
+    font-weight: bold;
+}
+
+.hobby2 {
+    color: #5cb85c;
+}
+
+.hobby3 {
+    color: #d9534f;
+    font-style: italic;
+}
+
+/* ========== CSS Keyframes 动画定义 ========== */
+@keyframes fadeInSlideUp {
+    /* 动画开始状态 (0%) */
+    0% {
+        opacity: 0; /* 完全透明 */
+        /* 向下移动 50px */
+        transform: translateY(50px); 
+    }
+    /* 动画结束状态 (100%) */
+    100% {
+        opacity: 1; /* 完全不透明 */
+        /* 恢复到原始位置 */
+        transform: translateY(0); 
+    }
+}
+/* ======================================= */
